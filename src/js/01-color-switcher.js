@@ -6,6 +6,7 @@ const start = document.querySelector(`button[data-start]`);
 const stop = document.querySelector(`button[data-stop]`);
 
 start.addEventListener(`click`, changeCollor);
+let colorChange
 
 function changeCollor() {
   const color = getRandomHexColor();

@@ -10,7 +10,7 @@ start.addEventListener(`click`, changeCollor);
 function changeCollor() {
   const color = getRandomHexColor();
   document.body.style.backgroundColor = color;
-  const colorChange = setInterval(() => {
+  colorChange = setInterval(() => {
     const color = getRandomHexColor();
     document.body.style.backgroundColor = color;
   }, 1000);

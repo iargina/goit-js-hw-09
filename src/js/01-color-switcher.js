@@ -4,7 +4,7 @@ function getRandomHexColor() {
 
 const start = document.querySelector(`button[data-start]`);
 const stop = document.querySelector(`button[data-stop]`);
-
+stop.setAttribute('disabled', 'disabled');
 start.addEventListener(`click`, changeCollor);
 let colorChange
 
@@ -16,6 +16,7 @@ function changeCollor() {
     document.body.style.backgroundColor = color;
   }, 1000);
   start.setAttribute('disabled', 'disabled');
+  stop.removeAttribute('disabled');
 }
 
 stop.addEventListener(`click`, standartStyle);
@@ -24,6 +25,7 @@ function standartStyle() {
   document.body.removeAttribute(`style`);
   start.removeAttribute('disabled');
   clearInterval(colorChange);
+  stop.setAttribute('disabled', 'disabled');
 }
 
 console.log(document.body);

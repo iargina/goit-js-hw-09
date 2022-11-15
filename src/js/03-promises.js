@@ -5,7 +5,8 @@ const inputDelay = document.querySelector(`[name="delay"]`);
 
 form.addEventListener(`submit`, creation);
 
-function creation() {
+function creation(event) {
+  event.preventDefault()
   const amount = Number(inputAmount.value);
   const delayFirst = Number(inputDelay.value);
   const step = Number(inputStep.value);
@@ -13,15 +14,21 @@ function creation() {
   for (let i = 1; i <= amount; i++) {
     let position = i;
     let delay = delayFirst + step * i;
-    createPromise(position, delay);
-  }
+    createPromise(position, delay).then(success => console.log(success))
+    .catch(error => console.log(error));
 }
-
+}
 function createPromise(position, delay) {
   const shouldResolve = Math.random() > 0.3;
-  if (shouldResolve) {
-    console.log(`✅ Fulfilled promise ${position} in ${delay}ms`);
+
+  const promise = new Promise((resolve, reject)=> {
+  setTimeout(()=> {
+     if (shouldResolve) {
+      resolve(`✅ Fulfilled promise ${position} in ${delay}ms`);
   } else {
-    console.log(`❌ Rejected promise ${position} in ${delay}ms`);
-  }
+    reject(`❌ Rejected promise ${position} in ${delay}ms`);
+  }},
+  delay);
+})
+return promise
 }

@@ -1,2 +1,0 @@
-!function(){var e=document.querySelector(".form"),o=document.querySelector('[name="amount"]'),n=document.querySelector('[name="step"]'),c=document.querySelector('[name="delay"]');function t(e,o){Math.random()>.3?console.log("✅ Fulfilled promise ".concat(e," in ").concat(o,"ms")):console.log("❌ Rejected promise ".concat(e," in ").concat(o,"ms"))}e.addEventListener("submit",(function(){for(var e=Number(o.value),u=Number(c.value),r=Number(n.value),m=1;m<=e;m++){t(m,u+r*m)}}))}();
-//# sourceMappingURL=03-promises.fab153fb.js.map
